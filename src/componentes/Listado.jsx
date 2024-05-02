@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
+import { BaseColaboradores } from './BaseColaboradores';
 
 
 const Listado = () => {
@@ -16,13 +17,15 @@ const Listado = () => {
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                <td>1</td>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-                <td>@mdo</td>
+            {BaseColaboradores.map(colaborador => (
+                <tr key={colaborador.id}>
+                <td>{colaborador.nombre}</td>
+                <td>{colaborador.correo}</td>
+                <td>{colaborador.edad}</td>
+                <td>{colaborador.cargo}</td>
+                <td>{colaborador.telefono}</td>
                 </tr>
+               ))}
             </tbody>
         </Table>
     </div>
