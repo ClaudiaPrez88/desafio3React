@@ -73,7 +73,7 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
 				) : (
 					<tr>
 						<td colSpan={7}>
-							<h1>No hay datos 😁</h1>
+							<h1>No existen Datos</h1>
 						</td>
 					</tr>
 				)}
