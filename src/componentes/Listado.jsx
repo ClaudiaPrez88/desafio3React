@@ -2,7 +2,7 @@ import React from 'react'
 import Table from 'react-bootstrap/Table';
 
 
-const Listado = ({usuarios}) => {
+const Listado = ({usuarios, onDelete, filterColaborador}) => {
 
   return (
     <div>
@@ -18,16 +18,54 @@ const Listado = ({usuarios}) => {
                 </tr>
             </thead>
             <tbody>
-           {usuarios.map((user,index) => ( 
-                <tr key={index}>
-                <td>{user.id}</td>
-                <td>{user.nombre}</td>
-                <td>{user.correo}</td>
-                <td>{user.edad}</td>
-                <td>{user.cargo}</td>
-                <td>{user.telefono}</td>
-                </tr>
-                ))} 
+            {filterColaborador?.length ? (
+					filterColaborador.map((user, index) => (
+						<tr key={index}>
+							<td>{user.id}</td>
+							<td>{user.nombre}</td>
+							<td>{user.correo}</td>
+							<td>{user.edad}</td>
+							<td>{user.cargo}</td>
+							<td>{user.telefono}</td>
+							<td>
+								<button
+									onClick={() =>
+										confirm('Estas seguro 😰?') && onDelete(user.id)
+									}
+								>
+									Eliminar
+								</button>
+							</td>
+						</tr>
+					))
+				) : usuarios?.length ? (
+					usuarios.map((user, index) => (
+						<tr key={index}>
+							<td>{user.id}</td>
+							<td>{user.nombre}</td>
+							<td>{user.correo}</td>
+							<td>{user.edad}</td>
+							<td>{user.cargo}</td>
+							<td>{user.telefono}</td>
+							<td>
+								<button
+									onClick={() =>
+										confirm('Estas seguro 😰?') && onDelete(user.id)
+									}
+								>
+									Eliminar
+								</button>
+							</td>
+						</tr>
+					))
+				) : (
+					<tr>
+						<td colSpan={7}>
+							<h1>No hay datos 😁</h1>
+						</td>
+					</tr>
+				)}
+
             </tbody>
         </Table>
     </div>

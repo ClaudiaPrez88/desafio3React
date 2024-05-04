@@ -13,6 +13,7 @@ import colaboradores from './database/BaseColaboradores';
 
 function App() {
   const [users, setUsers] = useState(colaboradores); 
+  const [filterColaborador, setFilterColaborador] = useState([]);
   const [formulario, setFormulario] = useState({
 		id: '',
 		nombre: '',
@@ -73,7 +74,22 @@ const handleSubmit = (event) => {
     setFormErrors("Agregado exitosamente")
   }
 };
+/* const handleDelete = (id) => {
+  setUsers(users.filter((user) => user.id != id));
+}; */
 
+const handleSearch = (event) => {
+  const value = event.target.value.toLowerCase();
+
+  setFilterColaborador(
+    users.filter((user) =>
+      Object.values(user).some((userField) =>
+        userField.toLowerCase().includes(value)
+      )
+    )
+  );
+/*   console.log(filterColaborador) */
+};
 
   return (
     <>
@@ -83,11 +99,12 @@ const handleSubmit = (event) => {
         <h1>Listado de colaboradores</h1>
         </Col>
         <Col xs={12} md={4}>
-          <Buscador/>
+          <Buscador onChange={handleSearch}/>
         </Col>
         <Col md={{  offset: 8}}></Col>
         <Col xs={12} md={8}>
-          <Listado usuarios={users}/>
+          <Listado usuarios={users} onDelete={handleDelete} filterColaborador={filterColaborador}/>
+          
         </Col>
         <Col xs={12} md={4}>
           <Formulario onSubmit={handleSubmit} onChange={handleChange}/>
