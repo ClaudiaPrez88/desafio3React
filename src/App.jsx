@@ -21,7 +21,6 @@ function App() {
 		cargo: '',
 		telefono: '',
 	});
-  const [formValido, setFormValido] = useState('');
   const [formErrors, setFormErrors] = useState('');
 
 const handleAddUser = (newUser) => {
@@ -46,6 +45,7 @@ const handleSubmit = (event) => {
   
   event.preventDefault();
   const id = users.length + 1;
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const { nombre, correo, edad, cargo, telefono } = event.target;
 
   if (
@@ -55,8 +55,12 @@ const handleSubmit = (event) => {
     !cargo.value ||
     !telefono.value
   ) {
-    setFormValido('Todos los campos son requeridos');
-  } else {
+    setFormErrors('Debes rellenar todos campos son requeridos');
+  } 
+  else if (emailRegex.test(correo)) {
+    setFormErrors('Correo electrónico inválido');
+  } 
+  else {
     const newUserForm = {
       id,
       nombre: nombre.value,
@@ -65,14 +69,11 @@ const handleSubmit = (event) => {
       cargo: cargo.value,
       telefono: telefono.value,
     };
-
     handleAddUser(newUserForm);
     setFormErrors("Agregado exitosamente")
   }
 };
-const handleErrors = (msg) => {
-  setFormErrors(msg);
-};
+
 
   return (
     <>
@@ -92,7 +93,7 @@ const handleErrors = (msg) => {
           <Formulario onSubmit={handleSubmit} onChange={handleChange}/>
         </Col>
         <Col xs={12}>
-          <Alert formErrors={formErrors} color={formErrors === 'Agregado exitosamente' ? 'success' : 'danger'}/>
+          <Alert mensaje={formErrors} color={formErrors === 'Agregado exitosamente' ? 'success' : 'danger'}/>
         </Col>
       </Row>
     </Container> 

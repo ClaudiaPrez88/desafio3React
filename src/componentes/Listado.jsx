@@ -4,16 +4,14 @@ import Table from 'react-bootstrap/Table';
 
 const Listado = ({usuarios}) => {
 
-  console.log(usuarios)
-
   return (
     <div>
         <Table striped bordered hover>
             <thead>
                 <tr>
+                <th>ID</th>
                 <th>Nombre</th>
                 <th>Correo</th>
-                <th>Edad</th>
                 <th>Cargo</th>
                 <th>Teléfono</th>
                 </tr>
@@ -26,6 +24,7 @@ const Listado = ({usuarios}) => {
                 <td>{user.correo}</td>
                 <td>{user.edad}</td>
                 <td>{user.cargo}</td>
+                <td>{user.telefono}</td>
                 </tr>
                 ))} 
             </tbody>

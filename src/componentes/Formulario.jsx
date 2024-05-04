@@ -11,14 +11,23 @@ const Formulario = ({ onSubmit, onChange }) => {
     <div>
         <h5>Agregar un colaborador</h5>
          <Form onSubmit={onSubmit}>
-          <Form.Group className="mb-3" controlId="nombre">
+          <Form.Group className="mb-3" controlId="id">
             <Form.Control
-              name="nombre"
+              name="id"
               type="text"
-              placeholder="Nombre del colaborador"
+              placeholder="Id del colaborador"
               onChange={onChange}
             />
           </Form.Group>
+
+      <Form.Group className="mb-3" controlId="nombre">
+        <Form.Control
+          name="nombre"
+          type="text"
+          placeholder="Nombre del colaborador"
+          onChange={onChange}
+        />
+      </Form.Group>
 
       <Form.Group className="mb-3" controlId="correo">
         <Form.Control
@@ -28,18 +37,16 @@ const Formulario = ({ onSubmit, onChange }) => {
           onChange={onChange}
         />
       </Form.Group>
-
       <Form.Group className="mb-3" controlId="edad">
         <Form.Control
           name="edad"
           type="number"
-          placeholder="Edad del colaborador"
           min={1}
 					max={100}
+          placeholder="Edad del colaborador"
           onChange={onChange}
         />
       </Form.Group>
-
       <Form.Group className="mb-3" controlId="cargo">
         <Form.Control
           name="cargo"
