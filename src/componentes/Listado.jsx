@@ -12,6 +12,7 @@ const Listado = ({usuarios}) => {
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Correo</th>
+                <th>Edad</th>
                 <th>Cargo</th>
                 <th>Teléfono</th>
                 </tr>
