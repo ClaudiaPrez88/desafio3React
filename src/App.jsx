@@ -22,8 +22,7 @@ function App() {
 		telefono: '',
 	});
   const [formValido, setFormValido] = useState('');
-
-
+  const [formErrors, setFormErrors] = useState('');
 
 const handleAddUser = (newUser) => {
   setUsers([...users, newUser]);
@@ -68,7 +67,11 @@ const handleSubmit = (event) => {
     };
 
     handleAddUser(newUserForm);
+    setFormErrors("Agregado exitosamente")
   }
+};
+const handleErrors = (msg) => {
+  setFormErrors(msg);
 };
 
   return (
@@ -89,7 +92,7 @@ const handleSubmit = (event) => {
           <Formulario onSubmit={handleSubmit} onChange={handleChange}/>
         </Col>
         <Col xs={12}>
-          <Alert variant="danger"/>
+          <Alert formErrors={formErrors} color={formErrors === 'Agregado exitosamente' ? 'success' : 'danger'}/>
         </Col>
       </Row>
     </Container> 

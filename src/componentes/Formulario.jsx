@@ -1,8 +1,10 @@
 import React from 'react'
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import PropTypes from 'prop-types';
 
 const Formulario = ({ onSubmit, onChange }) => {
+
 
 
   return (
@@ -62,5 +64,8 @@ const Formulario = ({ onSubmit, onChange }) => {
     </div>
   )
 }
-
+Formulario.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  onChange: PropTypes.func.isRequired
+};
 export default Formulario
