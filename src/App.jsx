@@ -72,11 +72,10 @@ const handleSubmit = (event) => {
     };
     handleAddUser(newUserForm);
     setFormErrors("Agregado exitosamente")
+    event.target.reset();
   }
 };
-/* const handleDelete = (id) => {
-  setUsers(users.filter((user) => user.id != id));
-}; */
+
 
 const handleSearch = (event) => {
   const value = event.target.value.toLowerCase();
@@ -88,7 +87,6 @@ const handleSearch = (event) => {
       )
     )
   );
-/*   console.log(filterColaborador) */
 };
 
   return (
@@ -98,15 +96,15 @@ const handleSearch = (event) => {
         <Col xs={12}>
         <h1>Listado de colaboradores</h1>
         </Col>
-        <Col xs={12} md={4}>
+        <Col xs={12} lg={4}>
           <Buscador onChange={handleSearch}/>
         </Col>
         <Col md={{  offset: 8}}></Col>
-        <Col xs={12} md={8}>
+        <Col xs={12} lg={9}>
           <Listado usuarios={users} onDelete={handleDelete} filterColaborador={filterColaborador}/>
           
         </Col>
-        <Col xs={12} md={4}>
+        <Col xs={12} lg={3}>
           <Formulario onSubmit={handleSubmit} onChange={handleChange}/>
         </Col>
         <Col xs={12}>

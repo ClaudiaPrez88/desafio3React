@@ -1,8 +1,20 @@
 import React from 'react'
 import Table from 'react-bootstrap/Table';
+import Swal from 'sweetalert2'
 
 
 const Listado = ({usuarios, onDelete, filterColaborador}) => {
+  const handleDelete = (userId) => { Swal.fire({ 
+    title: '¿Estás seguro de Eliminar el Usuario?',       
+    text: '¡No podrás deshacer esto!',       
+    icon: 'warning',       
+    showCancelButton: true,       
+    confirmButtonColor: '#3085d6',       
+    cancelButtonColor: '#d33',       
+    confirmButtonText: 'Sí, bórralo'})
+    .then((result) => {if (result.isConfirmed) { onDelete(userId);}
+  });
+};
 
   return (
     <div>
@@ -15,6 +27,7 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
                 <th>Edad</th>
                 <th>Cargo</th>
                 <th>Teléfono</th>
+                <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -28,10 +41,9 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
 							<td>{user.cargo}</td>
 							<td>{user.telefono}</td>
 							<td>
-								<button
-									onClick={() =>
-										confirm('Estas seguro 😰?') && onDelete(user.id)
-									}
+              <button
+								onClick={() => handleDelete(user.id)}	
+			
 								>
 									Eliminar
 								</button>
@@ -48,10 +60,10 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
 							<td>{user.cargo}</td>
 							<td>{user.telefono}</td>
 							<td>
-								<button
-									onClick={() =>
-										confirm('Estas seguro 😰?') && onDelete(user.id)
-									}
+              <button
+									
+										
+                    onClick={() => handleDelete(user.id)}	
 								>
 									Eliminar
 								</button>

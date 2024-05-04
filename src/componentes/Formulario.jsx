@@ -5,21 +5,10 @@ import PropTypes from 'prop-types';
 
 const Formulario = ({ onSubmit, onChange }) => {
 
-
-
   return (
     <div>
         <h5>Agregar un colaborador</h5>
          <Form onSubmit={onSubmit}>
-          <Form.Group className="mb-3" controlId="id">
-            <Form.Control
-              name="id"
-              type="text"
-              placeholder="Id del colaborador"
-              onChange={onChange}
-            />
-          </Form.Group>
-
       <Form.Group className="mb-3" controlId="nombre">
         <Form.Control
           name="nombre"
