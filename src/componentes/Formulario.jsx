@@ -6,8 +6,8 @@ import PropTypes from 'prop-types';
 const Formulario = ({ onSubmit, onChange }) => {
 
   return (
-    <div>
-        <h5>Agregar un colaborador</h5>
+    <div className='formulario'>
+        <h5 className='tit-form'>Agregar un colaborador</h5>
          <Form onSubmit={onSubmit}>
       <Form.Group className="mb-3" controlId="nombre">
         <Form.Control
@@ -53,7 +53,7 @@ const Formulario = ({ onSubmit, onChange }) => {
         />
       </Form.Group>
 
-      <Button variant="success" type="submit">
+      <Button type="submit">
        Agregar colaborador
       </Button>
     </Form> 

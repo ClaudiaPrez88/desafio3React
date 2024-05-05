@@ -56,7 +56,7 @@ const handleSubmit = (event) => {
     !cargo.value ||
     !telefono.value
   ) {
-    setFormErrors('Debes rellenar todos campos son requeridos');
+    setFormErrors('Todos campos son requeridos');
   } 
   else if (emailRegex.test(correo)) {
     setFormErrors('Correo electrónico inválido');
@@ -94,7 +94,7 @@ const handleSearch = (event) => {
      <Container>
       <Row>
         <Col xs={12}>
-        <h1>Listado de colaboradores</h1>
+        <h1 className='titulo'>Listado de colaboradores</h1>
         </Col>
         <Col xs={12} lg={4}>
           <Buscador onChange={handleSearch}/>
@@ -106,9 +106,10 @@ const handleSearch = (event) => {
         </Col>
         <Col xs={12} lg={3}>
           <Formulario onSubmit={handleSubmit} onChange={handleChange}/>
-        </Col>
-        <Col xs={12}>
-          <Alert mensaje={formErrors} color={formErrors === 'Agregado exitosamente' ? 'success' : 'danger'}/>
+          <Alert 
+          mensaje={formErrors} 
+          link={formErrors === 'Agregado exitosamente' ? 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExenkxbzNwc2k0azA0M3c0aTd4MjZneWpwejhzdXhsbXVha3AyeHIyMiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/8rFgzA7aBR0aomiOMj/giphy.gif' : 'https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZTFqZWJ3aGt2ajRqYndoMW1ucnQybWVrbGFpbnhscHFxNGtvODN0YiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qNQFUVIKAt9Ek/giphy.gif'} 
+          color={formErrors === 'Agregado exitosamente' ? 'success' : 'danger'}/>
         </Col>
       </Row>
     </Container> 

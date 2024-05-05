@@ -1,6 +1,7 @@
 import React from 'react'
-import Table from 'react-bootstrap/Table';
+import Table from 'react-bootstrap/Table'
 import Swal from 'sweetalert2'
+import Button from 'react-bootstrap/Button'
 
 
 const Listado = ({usuarios, onDelete, filterColaborador}) => {
@@ -17,7 +18,7 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
 };
 
   return (
-    <div>
+    <div className='listado'>
         <Table striped bordered hover>
             <thead>
                 <tr>
@@ -41,12 +42,12 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
 							<td>{user.cargo}</td>
 							<td>{user.telefono}</td>
 							<td>
-              <button
+              <Button
 								onClick={() => handleDelete(user.id)}	
-			
+                variant="primary"
 								>
 									Eliminar
-								</button>
+								</Button>
 							</td>
 						</tr>
 					))
@@ -60,13 +61,13 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
 							<td>{user.cargo}</td>
 							<td>{user.telefono}</td>
 							<td>
-              <button
+              <Button
 									
-										
+                  variant="primary"
                     onClick={() => handleDelete(user.id)}	
 								>
 									Eliminar
-								</button>
+								</Button>
 							</td>
 						</tr>
 					))
