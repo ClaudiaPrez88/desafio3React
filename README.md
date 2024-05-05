@@ -1,5 +1,5 @@
-# React + Vite
+# Desafio 3 - Base de datos colaboradores
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Renderización dinámica de componentes.
 
 ![Filtro buscador](public/captura.png)
