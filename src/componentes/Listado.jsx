@@ -46,7 +46,7 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
 								onClick={() => handleDelete(user.id)}	
                 variant="primary"
 								>
-									Eliminar
+									X
 								</Button>
 							</td>
 						</tr>
@@ -66,7 +66,7 @@ const Listado = ({usuarios, onDelete, filterColaborador}) => {
                   variant="primary"
                     onClick={() => handleDelete(user.id)}	
 								>
-									Eliminar
+									X
 								</Button>
 							</td>
 						</tr>
